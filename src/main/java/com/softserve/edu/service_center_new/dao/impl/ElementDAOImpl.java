@@ -29,8 +29,8 @@ public class ElementDAOImpl<E> implements ElementDAO<E> {
     @Override
     public List<E> getAllElements() {
         List<E> elements;
-        try (Session session =
-                     HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = HibernateUtil.getSessionFactory()
+                             .openSession()) {
             elements = (List<E>) session.createQuery("from "
                     + elementClass.getSimpleName()).list();
         }

@@ -29,7 +29,7 @@ public class User {
 
     private Role role;
 
-    private Collection<Order> order;
+    private Collection<Order> orders;
 
     public int getId() {
         return id;
@@ -80,12 +80,12 @@ public class User {
     }
 
     @OneToMany(mappedBy = "user")
-    public Collection<Order> getOrder() {
-        return order;
+    public Collection<Order> getOrders() {
+        return orders;
     }
 
-    public void setOrder(Collection<Order> order) {
-        this.order = order;
+    public void setOrders(Collection<Order> orders) {
+        this.orders = orders;
     }
 
     @ManyToOne

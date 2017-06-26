@@ -21,7 +21,7 @@ public class StateController {
 
     @RequestMapping(value = "states")
     public ModelAndView getAllStates() {
-        ModelAndView modelAndView = new ModelAndView("/states");
+        ModelAndView modelAndView = new ModelAndView("pages/states");
         List<State> states = stateService.getAllStates();
         modelAndView.addObject("states", states);
         return modelAndView;

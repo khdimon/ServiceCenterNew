@@ -6,7 +6,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Можливі стани</title>
+    <title>Закази</title>
 
     <style type="text/css">
         .tg {
@@ -54,13 +54,13 @@
     </style>
 </head>
 <body>
-<a href="index.jsp" style="font-weight: bold">Повернутися до головного
+<a href="../index.jsp" style="font-weight: bold">Повернутися до головного
     меню</a>
 <br/>
 <br/>
 
-<h1>Можливі стани</h1>
-<c:if test="${!empty states}">
+<h1>Закази</h1>
+<c:if test="${!empty orders}">
     <table class="tg">
         <tr>
             <th width="50">Id</th>
@@ -68,17 +68,17 @@
             <th width="80">Редагувати</th>
             <th width="80">Видалити</th>
         </tr>
-        <c:forEach items="${states}" var="state">
+        <c:forEach items="${orders}" var="order">
             <tr>
-                <td>${state.id}</td>
-                <td>${state.name}</td>
+                <td>${order.id}</td>
+                <td>${order.user}</td>
                 <td>
-                    <a href="<c:url value='edit/${state.id}'/>">
+                    <a href="<c:url value='edit/${order.id}'/>">
                         Редагувати
                     </a>
                 </td>
                 <td>
-                    <a href="<c:url value='/delete/${state.id}'/>">
+                    <a href="<c:url value='/delete/${order.id}'/>">
                         Видалити
                     </a>
                 </td>

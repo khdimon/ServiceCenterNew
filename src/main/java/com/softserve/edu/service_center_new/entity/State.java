@@ -15,7 +15,7 @@ public class State {
     @Column(name = "name")
     private String name;
 
-    private Collection<Order> order;
+    private Collection<Order> orders;
 
     public long getId() {
         return id;
@@ -34,12 +34,12 @@ public class State {
     }
 
     @OneToMany(mappedBy = "state")
-    public Collection<Order> getOrder() {
-        return order;
+    public Collection<Order> getOrders() {
+        return orders;
     }
 
-    public void setOrder(Collection<Order> order) {
-        this.order = order;
+    public void setOrders(Collection<Order> orders) {
+        this.orders = orders;
     }
 
     @Override

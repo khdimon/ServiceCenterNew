@@ -18,7 +18,7 @@ public class Service {
     @Column(name = "price")
     private int price;
 
-    private Collection<Order> order;
+    private Collection<Order> orders;
 
     public int getId() {
         return id;
@@ -45,12 +45,12 @@ public class Service {
     }
 
     @OneToMany(mappedBy = "service")
-    public Collection<Order> getOrder() {
-        return order;
+    public Collection<Order> getOrders() {
+        return orders;
     }
 
-    public void setOrder(Collection<Order> order) {
-        this.order = order;
+    public void setOrders(Collection<Order> orders) {
+        this.orders = orders;
     }
 
     @Override

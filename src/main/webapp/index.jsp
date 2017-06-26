@@ -9,5 +9,8 @@
 
 <br/>
 <a href="<c:url value="states"/>" style="font-weight: bold">Можливі стани</a>
+<br/>
+<a href="<c:url value="orders"/>" style="font-weight: bold">Закази</a>
+
 </body>
 </html>
