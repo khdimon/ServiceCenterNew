@@ -1,4 +1,4 @@
-package com.softserve.edu.service_center_new.dao;
+package com.softserve.edu.service_center_new.dao.util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;

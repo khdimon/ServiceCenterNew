@@ -1,31 +1,18 @@
 package com.softserve.edu.service_center_new.service;
 
-import com.softserve.edu.service_center_new.dao.DAOFactory;
-import com.softserve.edu.service_center_new.dao.StateDAO;
 import com.softserve.edu.service_center_new.entity.State;
 
 import java.util.List;
 
-public class StateService {
-    private StateDAO stateDAO = DAOFactory.getInstance().getStateDAO();
+public interface StateService {
 
-    public void addState(State state) {
-        stateDAO.addState(state);
-    }
+    void addState(State state);
 
-    public void updateState(State state) {
-        stateDAO.updateState(state);
-    }
+    void updateState(State state);
 
-    public State getStateById(int id) {
-        return stateDAO.getStateById(id);
-    }
+    State getStateById(int id);
 
-    public List<State> getAllState() {
-        return stateDAO.getAllStates();
-    }
+    List<State> getAllState();
 
-    public void deleteState(State state) {
-        stateDAO.deleteState(state);
-    }
+    void deleteState(State state);
 }
