@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "states")
-public class State {
+@Table(name = "services")
+public class Service {
 
     @Id
     @Column(name = "id")
@@ -15,9 +15,12 @@ public class State {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "price")
+    private int price;
+
     private Collection<Order> order;
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -33,7 +36,15 @@ public class State {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "state")
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    @OneToMany(mappedBy = "service")
     public Collection<Order> getOrder() {
         return order;
     }
@@ -47,9 +58,9 @@ public class State {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        State state = (State) o;
+        Service service = (Service) o;
 
-        return id == state.id;
+        return id == service.id;
     }
 
     @Override

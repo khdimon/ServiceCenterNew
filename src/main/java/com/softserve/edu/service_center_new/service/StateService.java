@@ -12,7 +12,7 @@ public interface StateService {
 
     State getStateById(int id);
 
-    List<State> getAllState();
+    List<State> getAllStates();
 
     void deleteState(State state);
 }

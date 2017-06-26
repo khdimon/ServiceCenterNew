@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "states")
-public class State {
+@Table(name = "teams")
+public class Team {
 
     @Id
     @Column(name = "id")
@@ -17,7 +17,7 @@ public class State {
 
     private Collection<Order> order;
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -33,7 +33,7 @@ public class State {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "state")
+    @OneToMany(mappedBy = "team")
     public Collection<Order> getOrder() {
         return order;
     }
@@ -47,9 +47,9 @@ public class State {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        State state = (State) o;
+        Team team = (Team) o;
 
-        return id == state.id;
+        return id == team.id;
     }
 
     @Override

@@ -8,23 +8,23 @@ USE `service_center_new`;
 
 
 CREATE TABLE `service_center_new`.`teams` (
-  `id`   INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45)  NOT NULL,
+  `id`   INT         NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC)
 )
   ENGINE = InnoDB;
 
 CREATE TABLE `service_center_new`.`states` (
-  `id`   INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45)  NOT NULL,
+  `id`   INT         NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC)
 )
   ENGINE = InnoDB;
 
 CREATE TABLE `service_center_new`.`services` (
-  `id`    INT NOT NULL AUTO_INCREMENT,
+  `id`    INT          NOT NULL AUTO_INCREMENT,
   `name`  VARCHAR(100) NOT NULL,
   `price` INT          NOT NULL,
   PRIMARY KEY (`id`),
@@ -33,21 +33,21 @@ CREATE TABLE `service_center_new`.`services` (
   ENGINE = InnoDB;
 
 CREATE TABLE `service_center_new`.`roles` (
-  `id`   INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45)  NOT NULL,
+  `id`   INT         NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC)
 )
   ENGINE = InnoDB;
 
 CREATE TABLE `service_center_new`.`users` (
-  `id`       INT NOT NULL AUTO_INCREMENT,
+  `id`       INT          NOT NULL AUTO_INCREMENT,
   `name`     VARCHAR(100) NOT NULL,
   `address`  VARCHAR(150) NOT NULL,
   `phone`    VARCHAR(45)  NOT NULL,
   `e-mail`   VARCHAR(100) NOT NULL,
   `password` VARCHAR(45)  NOT NULL,
-  `roles_id` INT NOT NULL,
+  `roles_id` INT          NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `fk_users_roles_idx` (`roles_id` ASC),
@@ -60,15 +60,16 @@ CREATE TABLE `service_center_new`.`users` (
   ENGINE = InnoDB;
 
 CREATE TABLE `service_center_new`.`orders` (
-  `id`             INT NOT NULL AUTO_INCREMENT,
+  `id`             INT          NOT NULL AUTO_INCREMENT,
   `address`        VARCHAR(150) NOT NULL,
   `phone`          VARCHAR(45)  NOT NULL,
   `creation_date`  TIMESTAMP    NOT NULL,
   `execution_date` DATE         NULL,
-  `users_id`       INT NOT NULL,
-  `teams_id`       INT NULL,
-  `services_id`    INT NOT NULL,
-  `states_id`      INT NOT NULL,
+  `users_id`       INT          NOT NULL,
+  `teams_id`       INT          NULL,
+  `services_id`    INT          NOT NULL,
+  `states_id`      INT          NOT NULL,
+  `comment`        VARCHAR(300) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `fk_orders_users1_idx` (`users_id` ASC),

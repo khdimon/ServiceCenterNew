@@ -29,7 +29,7 @@
     </context-param>
 
     <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener
+        <listener-class>com.softserve.edu.service_center_new.controller.ServletContextListenerImpl
         </listener-class>
     </listener>
 

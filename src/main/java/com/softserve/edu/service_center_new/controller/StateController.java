@@ -22,7 +22,7 @@ public class StateController {
     @RequestMapping(value = "states")
     public ModelAndView getAllStates() {
         ModelAndView modelAndView = new ModelAndView("/states");
-        List<State> states = stateService.getAllState();
+        List<State> states = stateService.getAllStates();
         modelAndView.addObject("states", states);
         return modelAndView;
     }

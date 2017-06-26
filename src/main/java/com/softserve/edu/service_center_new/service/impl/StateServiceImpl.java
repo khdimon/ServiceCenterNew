@@ -1,7 +1,8 @@
-package com.softserve.edu.service_center_new.service;
+package com.softserve.edu.service_center_new.service.impl;
 
 import com.softserve.edu.service_center_new.dao.StateDAO;
 import com.softserve.edu.service_center_new.entity.State;
+import com.softserve.edu.service_center_new.service.StateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,23 +18,28 @@ public class StateServiceImpl implements StateService {
         this.stateDAO = stateDAO;
     }
 
+    @Override
     public void addState(State state) {
-        stateDAO.addState(state);
+        stateDAO.addElement(state);
     }
 
+    @Override
     public void updateState(State state) {
-        stateDAO.updateState(state);
+        stateDAO.updateElement(state);
     }
 
+    @Override
     public State getStateById(int id) {
-        return stateDAO.getStateById(id);
+        return stateDAO.getElementById(id);
     }
 
-    public List<State> getAllState() {
-        return stateDAO.getAllStates();
+    @Override
+    public List<State> getAllStates() {
+        return stateDAO.getAllElements();
     }
 
+    @Override
     public void deleteState(State state) {
-        stateDAO.deleteState(state);
+        stateDAO.deleteElement(state);
     }
 }

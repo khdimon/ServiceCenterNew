@@ -11,10 +11,10 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         ConfigurableApplicationContext appCtx =
-                new ClassPathXmlApplicationContext("WEB-INF/spring-app.xml");
+                new ClassPathXmlApplicationContext("spring-app.xml");
         StateService stateService = appCtx.getBean(StateService.class);
 
-        List<State> states = stateService.getAllState();
+        List<State> states = stateService.getAllStates();
         for (State s : states) {
             System.out.println(s.getName());
         }

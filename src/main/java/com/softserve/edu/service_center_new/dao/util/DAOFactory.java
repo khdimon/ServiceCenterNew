@@ -1,6 +1,6 @@
 package com.softserve.edu.service_center_new.dao.util;
 
-import com.softserve.edu.service_center_new.dao.StateDAOImpl;
+import com.softserve.edu.service_center_new.dao.impl.StateDAOImpl;
 
 public class DAOFactory {
     private StateDAOImpl stateDAO = null;

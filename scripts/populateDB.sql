@@ -1,4 +1,4 @@
-INSERT INTO `service_center_new`.`teams`
+INSERT INTO `service_center_new`.`team`
 (`name`)
 VALUES
   ('Бригада 1'),
@@ -14,7 +14,7 @@ VALUES
   ('Виконаний'),
   ('Відмінений');
 
-INSERT INTO `service_center_new`.`services`
+INSERT INTO `service_center_new`.`service`
 (`name`, `price`)
 VALUES
   ('Встановлення пральної машини', '299'),
