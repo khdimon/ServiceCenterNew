@@ -11,6 +11,8 @@
         <property name="connection.username">root</property>
         <property name="connection.password">root</property>
 
+        <property name="show_sql">true</property>
+
         <mapping class="com.softserve.edu.service_center_new.entity.State"/>
         <mapping class="com.softserve.edu.service_center_new.entity.Role"/>
         <mapping class="com.softserve.edu.service_center_new.entity.Team"/>

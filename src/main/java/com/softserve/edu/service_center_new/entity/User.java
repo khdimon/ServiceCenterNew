@@ -7,30 +7,18 @@ import java.util.Collection;
 @Table(name = "users")
 public class User {
 
+    private int id;
+    private String name;
+    private String address;
+    private String phone;
+    private String eMail;
+    private String password;
+    private Role role;
+    private Collection<Order> orders;
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "address")
-    private String address;
-
-    @Column(name = "phone")
-    private String phone;
-
-    @Column(name = "e-mail")
-    private String email;
-
-    @Column(name = "password")
-    private String password;
-
-    private Role role;
-
-    private Collection<Order> orders;
-
     public int getId() {
         return id;
     }
@@ -39,6 +27,7 @@ public class User {
         this.id = id;
     }
 
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -47,6 +36,7 @@ public class User {
         this.name = name;
     }
 
+    @Column(name = "address")
     public String getAddress() {
         return address;
     }
@@ -55,6 +45,7 @@ public class User {
         this.address = address;
     }
 
+    @Column(name = "phone")
     public String getPhone() {
         return phone;
     }
@@ -63,29 +54,22 @@ public class User {
         this.phone = phone;
     }
 
-    public String getEmail() {
-        return email;
+    @Column(name = "e_mail")
+    public String getEMail() {
+        return eMail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEMail(String eMail) {
+        this.eMail = eMail;
     }
 
+    @Column(name = "password")
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @OneToMany(mappedBy = "user")
-    public Collection<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(Collection<Order> orders) {
-        this.orders = orders;
     }
 
     @ManyToOne
@@ -98,6 +82,14 @@ public class User {
         this.role = role;
     }
 
+    @OneToMany(mappedBy = "user")
+    public Collection<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Collection<Order> orders) {
+        this.orders = orders;
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -1,11 +1,14 @@
-INSERT INTO `service_center_new`.`team`
+USE `service_center_new`;
+
+
+INSERT INTO `teams`
 (`name`)
 VALUES
   ('Бригада 1'),
   ('Бригада 2'),
   ('Бригада 3');
 
-INSERT INTO `service_center_new`.`states`
+INSERT INTO `states`
 (`name`)
 VALUES
   ('Прийнятий'),
@@ -14,7 +17,7 @@ VALUES
   ('Виконаний'),
   ('Відмінений');
 
-INSERT INTO `service_center_new`.`service`
+INSERT INTO `services`
 (`name`, `price`)
 VALUES
   ('Встановлення пральної машини', '299'),
@@ -24,15 +27,15 @@ VALUES
   ('Профілактика кондиціонера', '599'),
   ('Профілактика водонагрівача', '299');
 
-INSERT INTO `service_center_new`.`roles`
+INSERT INTO `roles`
 (`name`)
 VALUES
   ('client'),
   ('dispatcher'),
   ('administrator');
 
-INSERT INTO `service_center_new`.`users`
-(`name`, `address`, `phone`, `e-mail`, `password`, `roles_id`)
+INSERT INTO `users`
+(`name`, `address`, `phone`, `e_mail`, `password`, `roles_id`)
 VALUES
   ('Іванченко Іван Іванович', 'м. Дніпро, пр. Яворницького, 55, кв. 9',
    '+380671234567', 'ivan111111@gmail.com', '111111', '1'),
@@ -41,7 +44,7 @@ VALUES
   ('Сидоренко Сидір Сидорович', 'м. Дніпро, вул. Січеславська Наберіжна,
    10, кв. 5', '+380931234567', 'sydir333333@gmail.com', '333333', '1');
 
-INSERT INTO `service_center_new`.`orders`
+INSERT INTO `orders`
 (`address`, `phone`, `creation_date`, `execution_date`, `users_id`,
  `teams_id`, `services_id`, `states_id`)
 VALUES

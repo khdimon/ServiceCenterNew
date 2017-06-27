@@ -7,7 +7,7 @@ CREATE SCHEMA `service_center_new`
 USE `service_center_new`;
 
 
-CREATE TABLE `service_center_new`.`teams` (
+CREATE TABLE `teams` (
   `id`   INT         NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
@@ -15,7 +15,7 @@ CREATE TABLE `service_center_new`.`teams` (
 )
   ENGINE = InnoDB;
 
-CREATE TABLE `service_center_new`.`states` (
+CREATE TABLE `states` (
   `id`   INT         NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
@@ -23,7 +23,7 @@ CREATE TABLE `service_center_new`.`states` (
 )
   ENGINE = InnoDB;
 
-CREATE TABLE `service_center_new`.`services` (
+CREATE TABLE `services` (
   `id`    INT          NOT NULL AUTO_INCREMENT,
   `name`  VARCHAR(100) NOT NULL,
   `price` INT          NOT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE `service_center_new`.`services` (
 )
   ENGINE = InnoDB;
 
-CREATE TABLE `service_center_new`.`roles` (
+CREATE TABLE `roles` (
   `id`   INT         NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
@@ -40,12 +40,12 @@ CREATE TABLE `service_center_new`.`roles` (
 )
   ENGINE = InnoDB;
 
-CREATE TABLE `service_center_new`.`users` (
+CREATE TABLE `users` (
   `id`       INT          NOT NULL AUTO_INCREMENT,
   `name`     VARCHAR(100) NOT NULL,
   `address`  VARCHAR(150) NOT NULL,
   `phone`    VARCHAR(45)  NOT NULL,
-  `e-mail`   VARCHAR(100) NOT NULL,
+  `e_mail`   VARCHAR(100) NOT NULL,
   `password` VARCHAR(45)  NOT NULL,
   `roles_id` INT          NOT NULL,
   PRIMARY KEY (`id`),
@@ -53,13 +53,13 @@ CREATE TABLE `service_center_new`.`users` (
   INDEX `fk_users_roles_idx` (`roles_id` ASC),
   CONSTRAINT `fk_users_roles`
   FOREIGN KEY (`roles_id`)
-  REFERENCES `service_center_new`.`roles` (`id`)
+  REFERENCES `roles` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 )
   ENGINE = InnoDB;
 
-CREATE TABLE `service_center_new`.`orders` (
+CREATE TABLE `orders` (
   `id`             INT          NOT NULL AUTO_INCREMENT,
   `address`        VARCHAR(150) NOT NULL,
   `phone`          VARCHAR(45)  NOT NULL,
@@ -78,22 +78,22 @@ CREATE TABLE `service_center_new`.`orders` (
   INDEX `fk_orders_states1_idx` (`states_id` ASC),
   CONSTRAINT `fk_orders_users1`
   FOREIGN KEY (`users_id`)
-  REFERENCES `service_center_new`.`users` (`id`)
+  REFERENCES `users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_orders_teams1`
   FOREIGN KEY (`teams_id`)
-  REFERENCES `service_center_new`.`teams` (`id`)
+  REFERENCES `teams` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_orders_services1`
   FOREIGN KEY (`services_id`)
-  REFERENCES `service_center_new`.`services` (`id`)
+  REFERENCES `services` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_orders_states1`
   FOREIGN KEY (`states_id`)
-  REFERENCES `service_center_new`.`states` (`id`)
+  REFERENCES `states` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 )

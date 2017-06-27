@@ -7,35 +7,21 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "orders")
 public class Order {
+   
+    private int id;
+    private String address;
+    private String phone;
+    private Timestamp creationDate;
+    private Date executionDate;
+    private String comment;
+    private User user;
+    private Service service;
+    private State state;
+    private Team team;
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Column(name = "address")
-    private String address;
-
-    @Column(name = "phone")
-    private String phone;
-
-    @Column(name = "creation_date")
-    private Timestamp creationDate;
-
-    @Column(name = "execution_date")
-    private Date executionDate;
-
-    @Column(name = "comment")
-    private String comment;
-
-    private User user;
-
-    private Service service;
-
-    private State state;
-
-    private Team team;
-
     public int getId() {
         return id;
     }
@@ -44,6 +30,7 @@ public class Order {
         this.id = id;
     }
 
+    @Column(name = "address")
     public String getAddress() {
         return address;
     }
@@ -52,6 +39,7 @@ public class Order {
         this.address = address;
     }
 
+    @Column(name = "phone")
     public String getPhone() {
         return phone;
     }
@@ -60,6 +48,7 @@ public class Order {
         this.phone = phone;
     }
 
+    @Column(name = "creation_date")
     public Timestamp getCreationDate() {
         return creationDate;
     }
@@ -68,6 +57,7 @@ public class Order {
         this.creationDate = creationDate;
     }
 
+    @Column(name = "execution_date")
     public Date getExecutionDate() {
         return executionDate;
     }
@@ -76,6 +66,7 @@ public class Order {
         this.executionDate = executionDate;
     }
 
+    @Column(name = "comment")
     public String getComment() {
         return comment;
     }

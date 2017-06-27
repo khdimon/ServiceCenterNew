@@ -54,8 +54,7 @@
     </style>
 </head>
 <body>
-<a href="../index.jsp" style="font-weight: bold">Повернутися до головного
-    меню</a>
+<a href="<c:url value="/index.jsp"/>" style="font-weight: bold">Повернутися до головного меню</a>
 <br/>
 <br/>
 
@@ -64,14 +63,14 @@
     <table class="tg">
         <tr>
             <th width="50">Id</th>
-            <th width="150">Назва</th>
+            <th width="150">Замовник</th>
             <th width="80">Редагувати</th>
             <th width="80">Видалити</th>
         </tr>
         <c:forEach items="${orders}" var="order">
             <tr>
                 <td>${order.id}</td>
-                <td>${order.user}</td>
+                <td>${order.user.name}</td>
                 <td>
                     <a href="<c:url value='edit/${order.id}'/>">
                         Редагувати

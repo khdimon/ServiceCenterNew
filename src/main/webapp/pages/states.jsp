@@ -54,7 +54,7 @@
     </style>
 </head>
 <body>
-<a href="../index.jsp" style="font-weight: bold">Повернутися до головного
+<a href="<c:url value="/index.jsp"/>" style="font-weight: bold">Повернутися до головного
     меню</a>
 <br/>
 <br/>

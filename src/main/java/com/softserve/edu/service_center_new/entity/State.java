@@ -7,17 +7,14 @@ import java.util.Collection;
 @Table(name = "states")
 public class State {
 
+    private int id;
+    private String name;
+    private Collection<Order> orders;
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Column(name = "name")
-    private String name;
-
-    private Collection<Order> orders;
-
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -25,6 +22,7 @@ public class State {
         this.id = id;
     }
 
+    @Column(name = "name")
     public String getName() {
         return name;
     }

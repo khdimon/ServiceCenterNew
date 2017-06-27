@@ -7,16 +7,13 @@ import java.util.Collection;
 @Table(name = "roles")
 public class Role {
 
+    private int id;
+    private String name;
+    private Collection<User> users;
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Column(name = "name")
-    private String name;
-
-    private Collection<User> users;
-
     public int getId() {
         return id;
     }
@@ -25,12 +22,22 @@ public class Role {
         this.id = id;
     }
 
+    @Column(name = "name")
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @OneToMany(mappedBy = "role")
+    public Collection<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Collection<User> users) {
+        this.users = users;
     }
 
     @Override
@@ -46,14 +53,5 @@ public class Role {
     @Override
     public int hashCode() {
         return id;
-    }
-
-    @OneToMany(mappedBy = "role")
-    public Collection<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Collection<User> users) {
-        this.users = users;
     }
 }

@@ -7,19 +7,14 @@ import java.util.Collection;
 @Table(name = "services")
 public class Service {
 
+    private int id;
+    private String name;
+    private int price;
+    private Collection<Order> orders;
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "price")
-    private int price;
-
-    private Collection<Order> orders;
-
     public int getId() {
         return id;
     }
@@ -28,6 +23,7 @@ public class Service {
         this.id = id;
     }
 
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -36,6 +32,7 @@ public class Service {
         this.name = name;
     }
 
+    @Column(name = "price")
     public int getPrice() {
         return price;
     }
