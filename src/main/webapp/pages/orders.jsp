@@ -1,9 +1,7 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
-<%@ page session="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <html>
 <head>
     <title>Закази</title>
@@ -53,39 +51,41 @@
         }
     </style>
 </head>
-<body>
-<a href="<c:url value="/index.jsp"/>" style="font-weight: bold">Повернутися до головного меню</a>
-<br/>
-<br/>
+<body style="margin: 0">
+<t:wrapper>
+    <a href="<c:url value="/index.jsp"/>" style="font-weight: bold">Повернутися
+        до головного меню</a>
+    <br/>
+    <br/>
 
-<h1>Закази</h1>
-<c:if test="${!empty orders}">
-    <table class="tg">
-        <tr>
-            <th width="50">Id</th>
-            <th width="150">Замовник</th>
-            <th width="80">Редагувати</th>
-            <th width="80">Видалити</th>
-        </tr>
-        <c:forEach items="${orders}" var="order">
+    <h1>Закази</h1>
+    <c:if test="${!empty orders}">
+        <table class="tg">
             <tr>
-                <td>${order.id}</td>
-                <td>${order.user.name}</td>
-                <td>
-                    <a href="<c:url value='edit/${order.id}'/>">
-                        Редагувати
-                    </a>
-                </td>
-                <td>
-                    <a href="<c:url value='/delete/${order.id}'/>">
-                        Видалити
-                    </a>
-                </td>
+                <th width="50">Id</th>
+                <th width="150">Замовник</th>
+                <th width="80">Редагувати</th>
+                <th width="80">Видалити</th>
             </tr>
-        </c:forEach>
-    </table>
-</c:if>
-
+            <c:forEach items="${orders}" var="order">
+                <tr>
+                    <td>${order.id}</td>
+                    <td>${order.user.name}</td>
+                    <td>
+                        <a href="<c:url value='edit/${order.id}'/>">
+                            Редагувати
+                        </a>
+                    </td>
+                    <td>
+                        <a href="<c:url value='/delete/${order.id}'/>">
+                            Видалити
+                        </a>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+    </c:if>
+</t:wrapper>
 </body>
 </html>
 
