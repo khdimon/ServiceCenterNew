@@ -1,18 +1,23 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+
 <html>
 <head>
-    <title>Service center</title>
+    <title>Сервісний центр</title>
 </head>
-<body>
-<h1>Сервісний центр</h1>
+<body style="margin: 0 8%; background-color: gray">
 
-<br/>
-<a href="<c:url value="states"/>" style="font-weight: bold">Можливі стани</a>
-<br/>
-<a href="<c:url value="orders"/>" style="font-weight: bold">Закази</a>
-<br/>
-<a href="<c:url value="pages/example.jsp"/>" style="font-weight: bold">Приклад</a>
+<t:wrapper>
+    <br/>
+    <div style="margin: 0 20px">
+        <a href="<c:url value="orders"/>" style="font-family: Arial,
+         sans-serif; font-weight: bold; font-size: 24px; text-decoration: none;
+         background-color: white">
+            &nbsp;Переглянути оформлені закази&nbsp;
+        </a>
+    </div>
+</t:wrapper>
 
 </body>
 </html>

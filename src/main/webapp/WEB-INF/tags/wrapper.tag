@@ -1,15 +1,27 @@
 <%@tag description="Tag with header and footer" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<div align="center" style="height: 10%; font-family: Arial, sans-serif;
- background-color: #98FB98; border: none">
-    <h2>Сервісний центр</h2>
-    <div>
+<!-- header -->
+<div align="center" style="min-height: 11%; font-family: Arial, sans-serif;
+font-weight: bold; background-color: #00CD00">
+    <div style="font-size: 22px; line-height: 45px; vertical-align: center">
+        Сервісний центр
+    </div>
+    <div style="font-size: 16px; line-height: 35px; vertical-align: center">
         Встановлення, обслуговування та ремонт побутової техніки
     </div>
 </div>
-<div align="center" style="min-height: 75%">
+
+<!-- body -->
+<div style="min-height: 79%;
+        background-image: url(<c:url
+        value="/resources/images/background.png"/>)">
     <jsp:doBody/>
+    <br/>
 </div>
-<div align="center" style="height: 5%; background-color: #98FB98; border: none;">
-    &copy; 2017 Холод Дмитро
+
+<!-- footer -->
+<div style="min-height: 10%; font-family: Arial, sans-serif; font-size: 14px;
+background-color: #00CD00; line-height: 24px; vertical-align: center">
+    &nbsp;&nbsp;&nbsp;&copy; 2017 Холод Д.В.
 </div>
