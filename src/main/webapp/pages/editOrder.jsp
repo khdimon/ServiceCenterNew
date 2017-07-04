@@ -5,115 +5,165 @@
 <%@ taglib prefix="calendar" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 <html>
 <head>
-    <title>Закази</title>
-
-    <style type="text/css">
-        .tg {
-            border-collapse: collapse;
-            border-spacing: 0;
-            border-color: #008000;
-        }
-
-        .tg td {
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-            padding: 10px 5px;
-            border-style: solid;
-            border-width: 1px;
-            overflow: hidden;
-            word-break: normal;
-            border-color: #008000;
-            background-color: #fff;
-        }
-
-        .tg th {
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-            font-weight: bold;
-            padding: 10px 5px;
-            border-style: solid;
-            border-width: 1px;
-            overflow: hidden;
-            word-break: normal;
-            border-color: #008000;
-            color: #333;
-            background-color: #98FB98;
-        }
-
-        .tg .tg-4eph {
-            background-color: #f9f9f9
-        }
-
-        .pn {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            font-weight: bold;
-        }
-    </style>
+    <title>Редагування замовлення</title>
+    <link rel="stylesheet" href="<c:url value="/resources/css/form.css"/>">
 </head>
-<body style="margin: 0 8%; background-color: gray">
+
 <t:wrapper>
-    <br/>
-    <div style="margin: 0 20px">
-        <a href="<c:url value="/index.jsp"/>" style="font-family: Arial,
-         sans-serif; font-weight: bold; font-size: 14px; text-decoration: none;
-         background-color: white">
-            &nbsp;Повернутися до головного меню&nbsp;
+    <div class="content_left">
+        <a href="<c:url value="/index.jsp"/>">
+            Повернутися до головного меню
         </a>
     </div>
     <br/>
-    <div align="center" style="font-family: Arial, sans-serif; font-size: 30px;
-         font-weight: bold">
-        <span style="background-color: white">
-            &nbsp;Редагувати заказ&nbsp;
-        </span>
+    <div class="content_left">
+        <a href="<c:url value="/orders"/>">
+            Повернутися до списку заказів
+        </a>
+    </div>
+    <div class="content_head">
+        Редагування замовлення
     </div>
 
-    <br/>
-    <c:url var="editAction" value="editOrder"/>
+    <c:url var="editAction" value="/editOrder"/>
     <form:form action="${editAction}" commandName="order">
-        <br/>
-        <input type="submit"
-               value="<spring:message text="Edit"/>"
-               style="width: 90px; background-color: #71BC78;
-                      border-style: solid; border-color: #008000;
-                      border-width: 1px"/>
-        <br/>
-        <br/>
-        <table>
+        <table class="form_table">
             <tr>
-                <td>
-                    <form:label path="id">
-                        <spring:message text="Номер заказу"/>
+                <td width="150px">
+                    <form:label path="id" class="form_label">
+                        Номер заказу
                     </form:label>
                 </td>
-                <td>
-                    <form:input path="id" readonly="true" size="20"
-                                disabled="true"
-                                style="width: 159px; border-color: #008000; border-style: solid;
-                                       border-width: 1px"/>
+                <td width="350px">
+                    <form:input path="id" readonly="true" disabled="true"
+                                class="form_input"/>
                     <form:hidden path="id"/>
                 </td>
             </tr>
+
             <tr>
-                <td width="90px">
-                    <form:label path="user.name">
-                        <spring:message text="Замовник"/>
+                <td>
+                    <form:label path="user.name" class="form_label">
+                        Замовник
                     </form:label>
                 </td>
                 <td>
-                    <form:input path="user.name"
-                                style="width: 159px; border-color: #008000; border-style: solid;
-                                   border-width: 1px"
-                                type="text"
-                                required="1"/>
+                    <form:input path="user.name" type="text" required="1"
+                                class="form_input"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <form:label path="address" class="form_label">
+                        Адреса
+                    </form:label>
+                </td>
+                <td>
+                    <form:input path="address" type="text" required="1"
+                                class="form_input"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <form:label path="phone" class="form_label">
+                        Телефон
+                    </form:label>
+                </td>
+                <td>
+                    <form:input path="phone" type="text" required="1"
+                                class="form_input"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <form:label path="service.name" class="form_label">
+                        Послуга
+                    </form:label>
+                </td>
+                <td>
+                    <form:input path="service.name" type="text" required="1"
+                                class="form_input"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <form:label path="team.name" class="form_label">
+                        Бригада
+                    </form:label>
+                </td>
+                <td>
+                    <form:input path="team.name" type="text"
+                                class="form_input"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <form:label path="creationDate" class="form_label">
+                        Дата оформлення
+                    </form:label>
+                </td>
+                <td>
+                    <form:input path="creationDate"
+                                type="date"
+                                readonly="true"
+                                disabled="true"
+                                class="form_input"/>
+                    <form:hidden path="creationDate"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <form:label path="executionDate" class="form_label">
+                        Дата виконання
+                    </form:label>
+                </td>
+                <td>
+                    <form:input path="executionDate" type="date"
+                                class="form_input"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <form:label path="state.name" class="form_label">
+                        Статус
+                    </form:label>
+                </td>
+                <td>
+                    <form:input path="state.name" type="text" required="1"
+                                class="form_input"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <form:label path="comment" class="form_label">
+                        Коментар
+                    </form:label>
+                </td>
+                <td>
+                    <form:input path="comment" type="text"
+                                class="form_input"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td align="right">
+                    <input type="submit" value="Зберігти" class="form_submit"/>
                 </td>
             </tr>
         </table>
     </form:form>
 </t:wrapper>
-</body>
-</html>
 
+</html>

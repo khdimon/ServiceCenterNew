@@ -42,4 +42,9 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(User user) {
         userDAO.deleteElement(user);
     }
+
+    @Override
+    public List<User> getAllClients() {
+        return userDAO.getAllClients();
+    }
 }

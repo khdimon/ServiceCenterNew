@@ -6,18 +6,23 @@
 <head>
     <title>Сервісний центр</title>
 </head>
-<body style="margin: 0 8%; background-color: gray">
 
 <t:wrapper>
-    <br/>
-    <div style="margin: 0 20px">
-        <a href="<c:url value="orders"/>" style="font-family: Arial,
-         sans-serif; font-weight: bold; font-size: 24px; text-decoration: none;
-         background-color: white">
-            &nbsp;Переглянути оформлені закази&nbsp;
+    <div>
+        <a href="<c:url value="orders"/>">
+            Переглянути оформлені замовлення
+        </a>
+        <br/>
+        <br/>
+        <a href="<c:url value="createOrder"/>">
+            Створити новий заказ
+        </a>
+        <br/>
+        <br/>
+        <a href="<c:url value="clients"/>">
+            Переглянути усіх клієнтів
         </a>
     </div>
 </t:wrapper>
 
-</body>
 </html>

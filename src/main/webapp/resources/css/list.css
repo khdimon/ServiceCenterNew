@@ -1,0 +1,28 @@
+.table_list {
+    width: 1000px;
+    margin-left: 50px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.table_list th {
+    padding: 7px 4px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #BCF46E;
+    border: 1px solid #589800;
+    overflow-wrap: break-word;
+}
+
+.table_list td {
+    padding: 7px 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background-color: white;
+    border: 1px solid #589800;
+}

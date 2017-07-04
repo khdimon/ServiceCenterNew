@@ -11,10 +11,10 @@ public class User {
     private String name;
     private String address;
     private String phone;
-    private String eMail;
     private String password;
     private Role role;
     private Collection<Order> orders;
+    private String mail;
 
     @Id
     @Column(name = "id")
@@ -55,12 +55,12 @@ public class User {
     }
 
     @Column(name = "e_mail")
-    public String getEMail() {
-        return eMail;
+    public String getMail() {
+        return mail;
     }
 
-    public void setEMail(String eMail) {
-        this.eMail = eMail;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     @Column(name = "password")

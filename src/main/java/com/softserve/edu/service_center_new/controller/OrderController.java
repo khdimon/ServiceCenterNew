@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -32,10 +33,14 @@ public class OrderController {
     }
 
     @RequestMapping(value = "deleteOrder/{id}")
-    public ModelAndView deleteOrderById(@PathVariable("id") int id) {
+    public String deleteOrderById(@PathVariable("id") int id,
+                                  HttpServletRequest request) {
         Order order = orderService.getOrderById(id);
         orderService.deleteOrder(order);
-        return getAllOrders();
+        String rootPath = request.getSession()
+                .getServletContext()
+                .getContextPath();
+        return "redirect: " + rootPath + "/orders";
     }
 
     @RequestMapping(value = "editOrder/{id}")
@@ -49,5 +54,11 @@ public class OrderController {
     public String editOrder(@ModelAttribute("order") Order order) {
         orderService.updateOrder(order);
         return "redirect: orders";
+    }
+
+    @RequestMapping(value="createOrder")
+    public String createOrder() {
+        Order order = new Order();
+        return "createOrder";
     }
 }

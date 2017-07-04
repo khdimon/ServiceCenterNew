@@ -2,7 +2,6 @@ package com.softserve.edu.service_center_new.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.sql.Timestamp;
 
 @Entity
 @Table(name = "orders")
@@ -11,7 +10,7 @@ public class Order {
     private int id;
     private String address;
     private String phone;
-    private Timestamp creationDate;
+    private Date creationDate;
     private Date executionDate;
     private String comment;
     private User user;
@@ -49,11 +48,11 @@ public class Order {
     }
 
     @Column(name = "creation_date")
-    public Timestamp getCreationDate() {
+    public Date getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Timestamp creationDate) {
+    public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
 
