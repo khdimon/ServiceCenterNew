@@ -1,9 +1,7 @@
 package com.softserve.edu.service_center_new.controller;
 
 import com.softserve.edu.service_center_new.dto.OrderDTO;
-import com.softserve.edu.service_center_new.entity.Order;
-import com.softserve.edu.service_center_new.entity.Service;
-import com.softserve.edu.service_center_new.entity.User;
+import com.softserve.edu.service_center_new.entity.*;
 import com.softserve.edu.service_center_new.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -61,6 +59,12 @@ public class OrderController {
         Order order = orderService.getOrderById(id);
         OrderDTO orderDTO = new OrderDTO(order);
         model.addAttribute("order", orderDTO);
+        List<Service> services = serviceService.getAllServices();
+        List<Team> teams = teamService.getAllTeams();
+        List<State> states = stateService.getAllStates();
+        model.addAttribute("services", services);
+        model.addAttribute("teams", teams);
+        model.addAttribute("states", states);
         return "pages/order/editOrder";
     }
 

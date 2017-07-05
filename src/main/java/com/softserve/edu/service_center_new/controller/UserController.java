@@ -110,7 +110,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "chooseClient/{id}")
-    public String choiceClient(@PathVariable("id") int id, Model model) {
+    public String chooseClient(@PathVariable("id") int id, Model model) {
         User client = userService.getUserById(id);
         OrderDTO orderDTO = new OrderDTO();
         orderDTO.setUserId(id);
@@ -120,5 +120,26 @@ public class UserController {
         model.addAttribute("order", orderDTO);
         model.addAttribute("services", serviceService.getAllServices());
         return "pages/order/createOrder";
+    }
+
+    @RequestMapping("chooseClientTableEdit")
+    public ModelAndView chooseClientTableEdit() {
+        ModelAndView modelAndView = new ModelAndView("pages/client/chooseClientEdit");
+        List<User> clients = userService.getAllClients();
+        modelAndView.addObject("clients", clients);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "chooseClientEdit/{id}")
+    public String chooseClientEdit(@PathVariable("id") int id, Model model) {
+        User client = userService.getUserById(id);
+        OrderDTO orderDTO = new OrderDTO();
+        orderDTO.setUserId(id);
+        orderDTO.setUserName(client.getName());
+        orderDTO.setAddress(client.getAddress());
+        orderDTO.setPhone(client.getPhone());
+        model.addAttribute("order", orderDTO);
+        model.addAttribute("services", serviceService.getAllServices());
+        return "pages/order/editOrder";
     }
 }

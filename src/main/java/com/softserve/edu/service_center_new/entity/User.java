@@ -1,6 +1,7 @@
 package com.softserve.edu.service_center_new.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
@@ -13,7 +14,7 @@ public class User {
     private String phone;
     private String password;
     private Role role;
-    private Collection<Order> orders;
+    private Collection<Order> orders = new ArrayList<>();
     private String mail;
 
     @Id
@@ -72,7 +73,7 @@ public class User {
         this.password = password;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "roles_id", referencedColumnName = "id")
     public Role getRole() {
         return role;
@@ -82,7 +83,7 @@ public class User {
         this.role = role;
     }
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     public Collection<Order> getOrders() {
         return orders;
     }

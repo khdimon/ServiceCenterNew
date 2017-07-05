@@ -55,6 +55,10 @@
                                 class="form_order_input"/>
                     <form:hidden path="userId"/>
                 </td>
+                <td>
+                    <a class="form_order_ref"
+                       href="/chooseClientTableEdit">Обрати</a>
+                </td>
             </tr>
 
             <tr>
@@ -88,8 +92,13 @@
                     </form:label>
                 </td>
                 <td>
-                    <form:input path="serviceName" type="text" required="1"
-                                class="form_order_input"/>
+                    <%--<form:input path="serviceName" type="text" required="1"
+                                class="form_order_input"/>--%>
+                    <form:select path="serviceName" class="form_order_input">
+                        <c:forEach items="${services}" var="service">
+                            <form:option value="${service.name}"/>
+                        </c:forEach>
+                    </form:select>
                 </td>
             </tr>
 
@@ -100,8 +109,13 @@
                     </form:label>
                 </td>
                 <td>
-                    <form:input path="teamName" type="text"
-                                class="form_order_input"/>
+                    <%--<form:input path="teamName" type="text"
+                                class="form_order_input"/>--%>
+                    <form:select path="teamName" class="form_order_input">
+                        <c:forEach items="${teams}" var="team">
+                            <form:option value="${team.name}"/>
+                        </c:forEach>
+                    </form:select>
                 </td>
             </tr>
 
@@ -140,8 +154,13 @@
                     </form:label>
                 </td>
                 <td>
-                    <form:input path="stateName" type="text" required="1"
-                                class="form_order_input"/>
+                    <%--<form:input path="stateName" type="text" required="1"
+                                class="form_order_input"/>--%>
+                    <form:select path="stateName" class="form_order_input">
+                        <c:forEach items="${states}" var="state">
+                            <form:option value="${state.name}"/>
+                        </c:forEach>
+                    </form:select>
                 </td>
             </tr>
 
