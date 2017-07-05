@@ -42,4 +42,9 @@ public class TeamServiceImpl implements TeamService {
     public void deleteTeam(Team team) {
         teamDAO.deleteElement(team);
     }
+
+    @Override
+    public Team getTeamByName(String name) {
+        return teamDAO.getTeamByName(name);
+    }
 }

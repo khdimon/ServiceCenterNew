@@ -15,4 +15,6 @@ public interface ServiceService {
     List<Service> getAllServices();
 
     void deleteService(Service service);
+
+    Service getServiceByName(String name);
 }

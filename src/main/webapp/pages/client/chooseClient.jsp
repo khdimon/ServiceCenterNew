@@ -6,7 +6,7 @@
 <html>
 <head>
     <title>Замовлення</title>
-    <link rel="stylesheet" href="<c:url value="/resources/css/list.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/css/elements.css"/>">
 </head>
 
 <t:wrapper>
@@ -14,6 +14,12 @@
     <div class="content_left">
         <a href="<c:url value="/index.jsp"/>">
             Повернутися до головного меню
+        </a>
+    </div>
+    <br/>
+    <div class="content_left">
+        <a href="<c:url value="addClientForm"/>">
+            Створити нового клієнта
         </a>
     </div>
     <div class="content_head">
@@ -28,15 +34,16 @@
     </div>
 
     <c:if test="${!empty clients}">
-        <table class="table_list">
+        <table class="elements_table">
             <tr>
                 <th width="43px">Id клієнта</th>
-                <th width="200px">ПІБ</th>
-                <th width="314px">Адреса</th>
+                <th width="190px">ПІБ</th>
+                <th width="264px">Адреса</th>
                 <th width="91px">Телефон</th>
                 <th width="150px">e-mail</th>
                 <th width="69px">Редагувати</th>
                 <th width="69px">Видалити</th>
+                <th width="60px" style="background-color: white; border: none"></th>
             </tr>
             <c:forEach items="${clients}" var="client">
                 <tr>
@@ -46,13 +53,18 @@
                     <td>${client.phone}</td>
                     <td>${client.mail}</td>
                     <td>
-                        <a href="<c:url value='editOrder/${client.id}'/>">
+                        <a href="<c:url value='editClient/${client.id}'/>">
                             Редагувати
                         </a>
                     </td>
                     <td>
-                        <a href="<c:url value='deleteOrder/${client.id}'/>">
+                        <a href="<c:url value='deleteClient/${client.id}'/>">
                             Видалити
+                        </a>
+                    </td>
+                    <td style="border: none">
+                        <a class="elements_choice" href="<c:url value='chooseClient/${client.id}'/>">
+                            Обрати
                         </a>
                     </td>
                 </tr>

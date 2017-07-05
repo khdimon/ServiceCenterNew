@@ -15,4 +15,6 @@ public interface StateService {
     List<State> getAllStates();
 
     void deleteState(State state);
+
+    State getStateByName(String name);
 }

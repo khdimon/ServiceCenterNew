@@ -42,4 +42,9 @@ public class StateServiceImpl implements StateService {
     public void deleteState(State state) {
         stateDAO.deleteElement(state);
     }
+
+    @Override
+    public State getStateByName(String name) {
+        return stateDAO.getStateByName(name);
+    }
 }

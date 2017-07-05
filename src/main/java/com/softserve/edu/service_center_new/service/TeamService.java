@@ -15,4 +15,6 @@ public interface TeamService {
     List<Team> getAllTeams();
 
     void deleteTeam(Team team);
+
+    Team getTeamByName(String name);
 }

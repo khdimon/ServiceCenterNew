@@ -41,4 +41,9 @@ public class ServiceServiceImpl implements ServiceService {
     public void deleteService(Service service) {
         serviceDAO.deleteElement(service);
     }
+
+    @Override
+    public Service getServiceByName(String name) {
+        return serviceDAO.getServiceByName(name);
+    }
 }

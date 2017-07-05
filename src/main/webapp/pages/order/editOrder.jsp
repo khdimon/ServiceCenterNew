@@ -21,7 +21,7 @@
     <br/>
     <div class="content_left">
         <a href="<c:url value="/orders"/>">
-            Повернутися до списку заказів
+            Повернутися до списку замовлень
         </a>
     </div>
     <div class="content_head">
@@ -29,84 +29,85 @@
     </div>
 
     <c:url var="editAction" value="/editOrder"/>
-    <form:form action="${editAction}" commandName="order">
-        <table class="form_table">
+    <form:form action="${editAction}" commandName="order" method="post">
+        <table class="form_order_table">
             <tr>
                 <td width="150px">
-                    <form:label path="id" class="form_label">
-                        Номер заказу
+                    <form:label path="id" class="form_order_label">
+                        Номер замовлення
                     </form:label>
                 </td>
                 <td width="350px">
                     <form:input path="id" readonly="true" disabled="true"
-                                class="form_input"/>
+                                class="form_order_input"/>
                     <form:hidden path="id"/>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <form:label path="user.name" class="form_label">
+                    <form:label path="userName" class="form_order_label">
                         Замовник
                     </form:label>
                 </td>
                 <td>
-                    <form:input path="user.name" type="text" required="1"
-                                class="form_input"/>
+                    <form:input path="userName" type="text" required="1"
+                                class="form_order_input"/>
+                    <form:hidden path="userId"/>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <form:label path="address" class="form_label">
+                    <form:label path="address" class="form_order_label">
                         Адреса
                     </form:label>
                 </td>
                 <td>
                     <form:input path="address" type="text" required="1"
-                                class="form_input"/>
+                                class="form_order_input"/>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <form:label path="phone" class="form_label">
+                    <form:label path="phone" class="form_order_label">
                         Телефон
                     </form:label>
                 </td>
                 <td>
                     <form:input path="phone" type="text" required="1"
-                                class="form_input"/>
+                                class="form_order_input"/>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <form:label path="service.name" class="form_label">
+                    <form:label path="serviceName" class="form_order_label">
                         Послуга
                     </form:label>
                 </td>
                 <td>
-                    <form:input path="service.name" type="text" required="1"
-                                class="form_input"/>
+                    <form:input path="serviceName" type="text" required="1"
+                                class="form_order_input"/>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <form:label path="team.name" class="form_label">
+                    <form:label path="teamName" class="form_order_label">
                         Бригада
                     </form:label>
                 </td>
                 <td>
-                    <form:input path="team.name" type="text"
-                                class="form_input"/>
+                    <form:input path="teamName" type="text"
+                                class="form_order_input"/>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <form:label path="creationDate" class="form_label">
+                    <form:label path="creationDate" class="form_order_label">
                         Дата оформлення
                     </form:label>
                 </td>
@@ -115,44 +116,44 @@
                                 type="date"
                                 readonly="true"
                                 disabled="true"
-                                class="form_input"/>
+                                class="form_order_input"/>
                     <form:hidden path="creationDate"/>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <form:label path="executionDate" class="form_label">
+                    <form:label path="executionDate" class="form_order_label">
                         Дата виконання
                     </form:label>
                 </td>
                 <td>
                     <form:input path="executionDate" type="date"
-                                class="form_input"/>
+                                class="form_order_input"/>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <form:label path="state.name" class="form_label">
+                    <form:label path="stateName" class="form_order_label">
                         Статус
                     </form:label>
                 </td>
                 <td>
-                    <form:input path="state.name" type="text" required="1"
-                                class="form_input"/>
+                    <form:input path="stateName" type="text" required="1"
+                                class="form_order_input"/>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <form:label path="comment" class="form_label">
+                    <form:label path="comment" class="form_order_label">
                         Коментар
                     </form:label>
                 </td>
                 <td>
                     <form:input path="comment" type="text"
-                                class="form_input"/>
+                                class="form_order_input"/>
                 </td>
             </tr>
 

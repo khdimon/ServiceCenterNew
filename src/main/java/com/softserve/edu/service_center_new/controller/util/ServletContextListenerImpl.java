@@ -1,4 +1,4 @@
-package com.softserve.edu.service_center_new.controller;
+package com.softserve.edu.service_center_new.controller.util;
 
 import com.softserve.edu.service_center_new.dao.util.HibernateUtil;
 import org.springframework.web.context.ContextLoaderListener;

@@ -1,22 +1,33 @@
-.form_table {
+.form_order_table {
     width: 500px;
     margin-left: 300px;
     table-layout: fixed;
 }
 
-.form_label {
+.form_order_label {
     width: 150px;
     font-family: Arial, sans-serif;
     font-size: 14px;
     font-weight: normal;
 }
 
-.form_input {
+.form_order_input {
     width: 350px;
     border: 1px solid #589800;
     font-family: Arial, sans-serif;
     font-size: 14px;
     font-weight: normal;
+}
+
+.form_order_ref {
+    color: #589800;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form_order_ref:visited {
+    color: #78AF2C;
 }
 
 .form_submit {
@@ -28,4 +39,25 @@
     font-family: Arial, sans-serif;
     font-size: 14px;
     font-weight: bold;
+}
+
+.form_user_table {
+    width: 400px;
+    margin-left: 350px;
+    table-layout: fixed;
+}
+
+.form_user_label {
+    width: 100px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.form_user_input {
+    width: 300px;
+    border: 1px solid #589800;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
 }

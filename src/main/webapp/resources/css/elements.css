@@ -1,4 +1,4 @@
-.table_list {
+.elements_table {
     width: 1000px;
     margin-left: 50px;
     table-layout: fixed;
@@ -6,7 +6,7 @@
     border-spacing: 0;
 }
 
-.table_list th {
+.elements_table th {
     padding: 7px 4px;
     font-family: Arial, sans-serif;
     font-size: 12px;
@@ -16,7 +16,7 @@
     overflow-wrap: break-word;
 }
 
-.table_list td {
+.elements_table td {
     padding: 7px 4px;
     white-space: nowrap;
     overflow: hidden;
@@ -25,4 +25,23 @@
     font-size: 12px;
     background-color: white;
     border: 1px solid #589800;
+}
+
+.elements_choice {
+    color: #589800;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.elements_choice:visited {
+    color: #78AF2C;
+}
+
+.elements_table_no_border th {
+    background-color: white;
+}
+
+.elements_table_no_border td {
+    border: none;
 }

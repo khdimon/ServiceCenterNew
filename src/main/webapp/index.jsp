@@ -9,14 +9,18 @@
 
 <t:wrapper>
     <div>
+        <br/>
+        <br/>
         <a href="<c:url value="orders"/>">
             Переглянути оформлені замовлення
         </a>
         <br/>
         <br/>
-        <a href="<c:url value="createOrder"/>">
-            Створити новий заказ
+        <br/>
+        <a href="<c:url value="createOrderForm"/>">
+            Створити нове замовлення
         </a>
+        <br/>
         <br/>
         <br/>
         <a href="<c:url value="clients"/>">

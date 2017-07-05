@@ -8,7 +8,7 @@
 
 <html>
 <head>
-    <title> Створення нового клієнта</title>
+    <title>Редагування клієнта</title>
     <link rel="stylesheet" href="<c:url value="/resources/css/form.css"/>">
 </head>
 
@@ -25,70 +25,71 @@
         </a>
     </div>
     <div class="content_head">
-        Створення нового клієнта
+        Редагування клієнта
     </div>
 
-    <c:url var="addAction" value="/addClient"/>
+    <c:url var="addAction" value="/editClient"/>
     <form:form action="${addAction}" commandName="client">
-        <table class="form_table">
+        <table class="form_user_table">
+
+            <tr>
+                <td width="100px">
+                    <form:label path="id" class="form_user_label">
+                        Id клієнта
+                    </form:label>
+                </td>
+                <td width="300px">
+                    <form:input path="id" readonly="true" disabled="true"
+                                class="form_user_input"/>
+                    <form:hidden path="id"/>
+                </td>
+            </tr>
 
             <tr>
                 <td>
-                    <form:label path="name" class="form_label">
+                    <form:label path="name" class="form_user_label">
                         ПІБ
                     </form:label>
                 </td>
                 <td>
                     <form:input path="name" type="text" required="1"
-                                class="form_input"/>
+                                class="form_user_input"/>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <form:label path="address" class="form_label">
+                    <form:label path="address" class="form_user_label">
                         Адреса
                     </form:label>
                 </td>
                 <td>
                     <form:input path="address" type="text" required="1"
-                                class="form_input"/>
+                                class="form_user_input"/>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <form:label path="phone" class="form_label">
+                    <form:label path="phone" class="form_user_label">
                         Телефон
                     </form:label>
                 </td>
                 <td>
                     <form:input path="phone" type="text" required="1"
-                                class="form_input"/>
+                                class="form_user_input"/>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <form:label path="mail" class="form_label">
-                        Статус
+                    <form:label path="mail" class="form_user_label">
+                        e-mail
                     </form:label>
                 </td>
                 <td>
                     <form:input path="mail" type="text" required="1"
-                                class="form_input"/>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <form:label path="password" class="form_label">
-                        Коментар
-                    </form:label>
-                </td>
-                <td>
-                    <form:input path="password" type="text"
-                                class="form_input"/>
+                                class="form_user_input"/>
                 </td>
             </tr>
 

@@ -6,7 +6,7 @@
 <html>
 <head>
     <title>Замовлення</title>
-    <link rel="stylesheet" href="<c:url value="/resources/css/list.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/css/elements.css"/>">
 </head>
 
 <t:wrapper>
@@ -14,6 +14,11 @@
     <div class="content_left">
         <a href="<c:url value="/index.jsp"/>">
             Повернутися до головного меню
+        </a>
+        <br/>
+        <br/>
+        <a href="<c:url value="createOrderForm"/>">
+            Створити нове замовлення
         </a>
     </div>
     <div class="content_head">
@@ -28,7 +33,7 @@
     </div>
 
     <c:if test="${!empty orders}">
-        <table class="table_list">
+        <table class="elements_table">
             <tr>
                 <th width="38px">Номер замовлення</th>
                 <th width="117px">Замовник</th>

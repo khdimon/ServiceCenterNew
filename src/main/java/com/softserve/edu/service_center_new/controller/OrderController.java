@@ -1,7 +1,10 @@
 package com.softserve.edu.service_center_new.controller;
 
+import com.softserve.edu.service_center_new.dto.OrderDTO;
 import com.softserve.edu.service_center_new.entity.Order;
-import com.softserve.edu.service_center_new.service.OrderService;
+import com.softserve.edu.service_center_new.entity.Service;
+import com.softserve.edu.service_center_new.entity.User;
+import com.softserve.edu.service_center_new.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,15 +21,25 @@ import java.util.List;
 public class OrderController {
 
     private OrderService orderService;
+    private UserService userService;
+    private StateService stateService;
+    private ServiceService serviceService;
+    private TeamService teamService;
 
     @Autowired
-    public OrderController(OrderService orderService) {
+    public OrderController(OrderService orderService, UserService userService,
+                           StateService stateService, ServiceService serviceService,
+                           TeamService teamService) {
         this.orderService = orderService;
+        this.userService = userService;
+        this.stateService = stateService;
+        this.serviceService = serviceService;
+        this.teamService = teamService;
     }
 
     @RequestMapping(value = "orders")
     public ModelAndView getAllOrders() {
-        ModelAndView modelAndView = new ModelAndView("pages/orders");
+        ModelAndView modelAndView = new ModelAndView("pages/order/orders");
         List<Order> orders = orderService.getAllOrders();
         modelAndView.addObject("orders", orders);
         return modelAndView;
@@ -46,19 +59,59 @@ public class OrderController {
     @RequestMapping(value = "editOrder/{id}")
     public String editOrderById(@PathVariable("id") int id, Model model) {
         Order order = orderService.getOrderById(id);
-        model.addAttribute("order", order);
-        return "pages/editOrder";
+        OrderDTO orderDTO = new OrderDTO(order);
+        model.addAttribute("order", orderDTO);
+        return "pages/order/editOrder";
     }
 
     @RequestMapping(value = "editOrder", method = RequestMethod.POST)
-    public String editOrder(@ModelAttribute("order") Order order) {
+    public String editOrder(@ModelAttribute("order") OrderDTO orderDTO) {
+        Order order = orderService.getOrderById(orderDTO.getId());
+        order.setUser(userService.getUserById(orderDTO.getUserId()));
+        order.setAddress(orderDTO.getAddress());
+        order.setPhone(orderDTO.getPhone());
+        order.setService(serviceService.getServiceByName(orderDTO.getServiceName()));
+        if (!orderDTO.getTeamName().isEmpty()) {
+            order.setTeam(teamService.getTeamByName(orderDTO.getTeamName()));
+        }
+        order.setState(stateService.getStateByName(orderDTO.getStateName()));
+        order.setCreationDate(orderDTO.getCreationDate());
+        if (orderDTO.getExecutionDate() != null) {
+            order.setExecutionDate(orderDTO.getExecutionDate());
+        }
+        if (!orderDTO.getComment().isEmpty()) {
+            order.setComment(orderDTO.getComment());
+        }
         orderService.updateOrder(order);
         return "redirect: orders";
     }
 
-    @RequestMapping(value="createOrder")
-    public String createOrder() {
+    @RequestMapping(value = "createOrderForm")
+    public String createOrderForm(Model model) {
+        OrderDTO orderDTO = new OrderDTO();
+        model.addAttribute("order", orderDTO);
+        List<Service> services = serviceService.getAllServices();
+        model.addAttribute("services", services);
+        return "pages/order/createOrder";
+    }
+
+    @RequestMapping(value = "createOrder")
+    public String createOrder(@ModelAttribute("order") OrderDTO orderDTO,
+                              HttpServletRequest request) {
         Order order = new Order();
-        return "createOrder";
+        User user = userService.getUserById(orderDTO.getUserId());
+        order.setAddress(orderDTO.getAddress());
+        order.setPhone(orderDTO.getPhone());
+        order.setState(stateService.getStateByName("Прийнятий"));
+        order.setUser(user);
+        order.setService(serviceService.getServiceByName(orderDTO.getServiceName()));
+        if (!orderDTO.getComment().isEmpty()) {
+            order.setComment(orderDTO.getComment());
+        }
+        orderService.addOrder(order);
+        String rootPath = request.getSession()
+                .getServletContext()
+                .getContextPath();
+        return "redirect: " + rootPath + "/orders";
     }
 }
